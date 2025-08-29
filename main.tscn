@@ -1,0 +1,69 @@
+[gd_scene load_steps=8 format=3 uid="uid://bsgmyoujx8jix"]
+
+[ext_resource type="Script" uid="uid://bgkwa43fur01o" path="res://game_manager.gd" id="1_0xm2m"]
+[ext_resource type="PackedScene" uid="uid://htxk1fffgx5p" path="res://player.tscn" id="1_cyjr0"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_t7khc"]
+sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+ground_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+
+[sub_resource type="Sky" id="Sky_tvwol"]
+sky_material = SubResource("ProceduralSkyMaterial_t7khc")
+
+[sub_resource type="Environment" id="Environment_d2rf2"]
+background_mode = 2
+sky = SubResource("Sky_tvwol")
+tonemap_mode = 2
+glow_enabled = true
+
+[sub_resource type="BoxMesh" id="BoxMesh_umc3s"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_0dk46"]
+size = Vector3(1.01154, 0.237, 1.61371)
+
+[node name="Main" type="Node3D"]
+
+[node name="GameManager" type="Node3D" parent="."]
+script = ExtResource("1_0xm2m")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_d2rf2")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.720804, -0.416156, 0.554307, 0.480044, 0.277153, 0.832312, -0.5, 0.866026, 1.86513e-07, 0, 0, -0.101173)
+light_energy = 0.515
+light_bake_mode = 1
+shadow_enabled = true
+
+[node name="Player" parent="." instance=ExtResource("1_cyjr0")]
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 0, 1, 0.747471)
+
+[node name="Camera3D" type="Camera3D" parent="Player"]
+transform = Transform3D(0.2, 0, 0, 0, 0.196962, 0.0347296, 0, -0.0347296, 0.196962, 0, 0.1, 1)
+fov = 91.2305
+
+[node name="Obstacles" type="Node3D" parent="."]
+
+[node name="Block" type="MeshInstance3D" parent="Obstacles"]
+transform = Transform3D(2.91869, 0, 0, 0, 0.609995, 0, 0, 0, 2.41065, 0.00686169, 0.0270927, -0.00480461)
+mesh = SubResource("BoxMesh_umc3s")
+skeleton = NodePath("../..")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Obstacles/Block"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.203308, 0.524506, -0.0667726)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Obstacles/Block/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.198829, 0, 0.0476386)
+shape = SubResource("BoxShape3D_0dk46")
+
+[node name="Block2" type="MeshInstance3D" parent="Obstacles"]
+transform = Transform3D(2.91869, 0, 0, 0, 0.609995, 0, 0, 0, 2.41065, 3.78057, 0.882058, -0.00409841)
+mesh = SubResource("BoxMesh_umc3s")
+skeleton = NodePath("../..")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Obstacles/Block2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.203308, 0.524506, -0.0667726)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Obstacles/Block2/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.198829, 0, 0.0476386)
+shape = SubResource("BoxShape3D_0dk46")

@@ -1,0 +1,49 @@
+[gd_scene load_steps=7 format=3 uid="uid://bsgmyoujx8jix"]
+
+[ext_resource type="PackedScene" uid="uid://htxk1fffgx5p" path="res://player.tscn" id="1_cyjr0"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_t7khc"]
+sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+ground_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+
+[sub_resource type="Sky" id="Sky_tvwol"]
+sky_material = SubResource("ProceduralSkyMaterial_t7khc")
+
+[sub_resource type="Environment" id="Environment_d2rf2"]
+background_mode = 2
+sky = SubResource("Sky_tvwol")
+tonemap_mode = 2
+glow_enabled = true
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_ml668"]
+size = Vector2(5, 2)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_0dk46"]
+size = Vector3(5.82947, 0.237, 1.61371)
+
+[node name="Main" type="Node3D"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_d2rf2")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.866025, -0.433013, 0.25, 0, 0.5, 0.866025, -0.5, 0.75, -0.433013, 0, 0, 0)
+shadow_enabled = true
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(3.25339, 0, 0, 0, 0.999965, 0, 0, 0, 4.38273, 0.00686169, 0.0270927, -0.00480461)
+mesh = SubResource("PlaneMesh_ml668")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="MeshInstance3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.203308, -0.118134, -0.0667725)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MeshInstance3D/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.0476386)
+shape = SubResource("BoxShape3D_0dk46")
+
+[node name="Player" parent="." instance=ExtResource("1_cyjr0")]
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, -0.00884217, 1.00856, -0.00189858)
+
+[node name="Camera3D" type="Camera3D" parent="Player"]
+transform = Transform3D(0.2, 0, 0, 0, 0.196962, 0.0347296, 0, -0.0347296, 0.196962, -0.123985, 0.27449, 1.37821)
+fov = 91.2305
