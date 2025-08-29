@@ -1,7 +1,8 @@
-[gd_scene load_steps=8 format=3 uid="uid://bsgmyoujx8jix"]
+[gd_scene load_steps=10 format=3 uid="uid://bsgmyoujx8jix"]
 
 [ext_resource type="Script" uid="uid://bgkwa43fur01o" path="res://game_manager.gd" id="1_0xm2m"]
 [ext_resource type="PackedScene" uid="uid://htxk1fffgx5p" path="res://player.tscn" id="1_cyjr0"]
+[ext_resource type="Script" uid="uid://54c2aln2qhud" path="res://kill_zone.gd" id="3_h2yge"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_t7khc"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -20,6 +21,8 @@ glow_enabled = true
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_0dk46"]
 size = Vector3(1.01154, 0.237, 1.61371)
+
+[sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_0xm2m"]
 
 [node name="Main" type="Node3D"]
 
@@ -67,3 +70,12 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.203308, 0.524506, -0.066772
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Obstacles/Block2/StaticBody3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.198829, 0, 0.0476386)
 shape = SubResource("BoxShape3D_0dk46")
+
+[node name="KillZone" type="Area3D" parent="."]
+script = ExtResource("3_h2yge")
+
+[node name="KillZone" type="CollisionShape3D" parent="KillZone"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -3.87335, 0)
+shape = SubResource("WorldBoundaryShape3D_0xm2m")
+
+[connection signal="body_entered" from="KillZone" to="KillZone" method="_on_body_entered"]
