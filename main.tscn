@@ -45,33 +45,74 @@ transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 0, 1, 0.747471)
 transform = Transform3D(0.2, 0, 0, 0, 0.196962, 0.0347296, 0, -0.0347296, 0.196962, 0, 0.1, 1)
 fov = 91.2305
 
-[node name="Obstacles" type="Node3D" parent="."]
+[node name="Environment" type="Node" parent="."]
 
-[node name="Block" type="MeshInstance3D" parent="Obstacles"]
+[node name="Obstacles" type="Node" parent="Environment"]
+
+[node name="Block" type="MeshInstance3D" parent="Environment/Obstacles"]
 transform = Transform3D(2.91869, 0, 0, 0, 0.609995, 0, 0, 0, 2.41065, 0.00686169, 0.0270927, -0.00480461)
 mesh = SubResource("BoxMesh_umc3s")
-skeleton = NodePath("../..")
+skeleton = NodePath("../../..")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="Obstacles/Block"]
+[node name="StaticBody3D" type="StaticBody3D" parent="Environment/Obstacles/Block"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.203308, 0.524506, -0.0667726)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Obstacles/Block/StaticBody3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Environment/Obstacles/Block/StaticBody3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.198829, 0, 0.0476386)
 shape = SubResource("BoxShape3D_0dk46")
 
-[node name="Block2" type="MeshInstance3D" parent="Obstacles"]
+[node name="Block2" type="MeshInstance3D" parent="Environment/Obstacles"]
 transform = Transform3D(2.91869, 0, 0, 0, 0.609995, 0, 0, 0, 2.41065, 3.78057, 0.882058, -0.00409841)
+mesh = SubResource("BoxMesh_umc3s")
+skeleton = NodePath("../../..")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Environment/Obstacles/Block2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.203308, 0.524506, -0.0667726)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Environment/Obstacles/Block2/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.198829, 0, 0.0476386)
+shape = SubResource("BoxShape3D_0dk46")
+
+[node name="Block3" type="MeshInstance3D" parent="Environment/Obstacles"]
+transform = Transform3D(2.91869, 0, 0, 0, 0.609995, 0, 0, 0, 2.41065, -4.45259, 1.98067, -0.00480461)
+mesh = SubResource("BoxMesh_umc3s")
+skeleton = NodePath("../../..")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Environment/Obstacles/Block3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.203308, 0.524506, -0.0667726)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Environment/Obstacles/Block3/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.198829, 0, 0.0476386)
+shape = SubResource("BoxShape3D_0dk46")
+
+[node name="Block4" type="MeshInstance3D" parent="Environment/Obstacles"]
+transform = Transform3D(4.09207, 0, 0, 0, 1.63187, 0, 0, 0, 3.53887, -9.20209, 3.18887, -0.0163868)
 mesh = SubResource("BoxMesh_umc3s")
 skeleton = NodePath("../..")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="Obstacles/Block2"]
+[node name="StaticBody3D" type="StaticBody3D" parent="Environment/Obstacles/Block4"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.203308, 0.524506, -0.0667726)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Obstacles/Block2/StaticBody3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Environment/Obstacles/Block4/StaticBody3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.198829, 0, 0.0476386)
 shape = SubResource("BoxShape3D_0dk46")
 
+[node name="Block5" type="MeshInstance3D" parent="Environment/Obstacles"]
+transform = Transform3D(3.70158, -0.695693, 0, 1.74452, 1.47615, 0, 0, 0, 3.53887, 8.62704, 1.40003, -0.0163868)
+mesh = SubResource("BoxMesh_umc3s")
+skeleton = NodePath("../..")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Environment/Obstacles/Block5"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.203308, 0.524506, -0.0667726)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Environment/Obstacles/Block5/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.198829, 0, 0.0476386)
+shape = SubResource("BoxShape3D_0dk46")
+
+[node name="Background" type="Node" parent="Environment"]
+
 [node name="KillZone" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.37006, 0)
 script = ExtResource("3_h2yge")
 
 [node name="KillZone" type="CollisionShape3D" parent="KillZone"]
