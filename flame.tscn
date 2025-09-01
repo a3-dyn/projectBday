@@ -1,5 +1,6 @@
-[gd_scene load_steps=20 format=3 uid="uid://t23f5xtab23l"]
+[gd_scene load_steps=21 format=3 uid="uid://t23f5xtab23l"]
 
+[ext_resource type="Script" uid="uid://03t8mnaqmkgv" path="res://collectable.gd" id="1_a44u2"]
 [ext_resource type="Texture2D" uid="uid://clwujadkrnlbr" path="res://assets/flames.png" id="1_dg5d3"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_a44u2"]
@@ -139,17 +140,18 @@ animations = [{
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_ix6le"]
 
-[node name="Node3D" type="Node3D"]
+[node name="Node3D" type="Area3D"]
+script = ExtResource("1_a44u2")
 
 [node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="."]
-transform = Transform3D(0.997724, 0, 0, 0, 0.997724, 0, 0, 0, 0.997724, 0, 0, 0)
+transform = Transform3D(0.995162, 0, 0, 0, 0.995162, 0, 0, 0, 0.995162, 0, 0, 0)
 texture_filter = 0
 sprite_frames = SubResource("SpriteFrames_3sicn")
 animation = &"4"
 autoplay = "1"
 
-[node name="Area3D" type="Area3D" parent="."]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
-transform = Transform3D(0.078619, 0, 0, 0, 0.101831, 0, 0, 0, 0.108771, 0, 0, 0)
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(0.0995643, 0, 0, 0, 0.0995643, 0, 0, 0, 0.0995643, 0, 0, 0)
 shape = SubResource("SphereShape3D_ix6le")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]

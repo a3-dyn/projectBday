@@ -49,14 +49,8 @@ fov = 91.2305
 
 [node name="Entities" type="Node" parent="."]
 
-[node name="Candle" parent="Entities" instance=ExtResource("4_1bvp3")]
-transform = Transform3D(8.90165, 0, 0, 0, 6.77555, 0, 0, 0, 1.37648, -4.65467, 2.85817, 0.573092)
-
-[node name="Candle2" parent="Entities" instance=ExtResource("4_1bvp3")]
-transform = Transform3D(8.90165, 0, 0, 0, 6.77555, 0, 0, 0, 1.37648, 3.67429, 2.08593, 0.573092)
-
-[node name="Candle3" parent="Entities" instance=ExtResource("4_1bvp3")]
-transform = Transform3D(8.90165, 0, 0, 0, 6.77555, 0, 0, 0, 1.37648, 9.31853, 3.44527, 0.573092)
+[node name="Node3D" parent="Entities" instance=ExtResource("4_1bvp3")]
+transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, -4.49758, 2.65977, 0.508075)
 
 [node name="Environment" type="Node" parent="."]
 
