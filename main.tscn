@@ -34,12 +34,6 @@ script = ExtResource("1_0xm2m")
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_d2rf2")
 
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(-0.658605, -0.380246, 0.651152, 0.563915, 0.325576, 0.760492, -0.500586, 0.867041, 2.01794e-07, 0.0168357, 1.38839, -0.101173)
-light_energy = 0.515
-light_bake_mode = 1
-shadow_enabled = true
-
 [node name="Player" parent="." instance=ExtResource("1_cyjr0")]
 transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 0, 1, 0.747471)
 
@@ -49,8 +43,14 @@ fov = 91.2305
 
 [node name="Entities" type="Node" parent="."]
 
-[node name="Node3D" parent="Entities" instance=ExtResource("4_1bvp3")]
-transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, -4.49758, 2.65977, 0.508075)
+[node name="_01" parent="Entities" instance=ExtResource("4_1bvp3")]
+transform = Transform3D(9.82018, 0, 0, 0, 9.82018, 0, 0, 0, 9.82018, -4.49758, 2.65977, 0.508075)
+
+[node name="_02" parent="Entities" instance=ExtResource("4_1bvp3")]
+transform = Transform3D(9.82018, 0, 0, 0, 9.82018, 0, 0, 0, 9.82018, 3.84678, 2.29667, 0.508075)
+
+[node name="_03" parent="Entities" instance=ExtResource("4_1bvp3")]
+transform = Transform3D(9.82018, 0, 0, 0, 9.82018, 0, 0, 0, 9.82018, 8.54826, 3.88691, 0.508075)
 
 [node name="Environment" type="Node" parent="."]
 

@@ -141,6 +141,9 @@ animations = [{
 [sub_resource type="SphereShape3D" id="SphereShape3D_ix6le"]
 
 [node name="Node3D" type="Area3D"]
+transform = Transform3D(0.993513, 0, 0, 0, 0.993513, 0, 0, 0, 0.993513, 0, 0, 0)
+collision_layer = 3
+collision_mask = 3
 script = ExtResource("1_a44u2")
 
 [node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="."]
@@ -151,7 +154,12 @@ animation = &"4"
 autoplay = "1"
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(0.0995643, 0, 0, 0, 0.0995643, 0, 0, 0, 0.0995643, 0, 0, 0)
+transform = Transform3D(0.06, 0, 0, 0, 0.06, 0, 0, 0, 0.06, 0, 0, 0)
 shape = SubResource("SphereShape3D_ix6le")
 
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+light_energy = 0.238
+
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_shape_entered" from="." to="." method="_on_body_shape_entered"]

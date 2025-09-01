@@ -162,6 +162,7 @@ height = 0.259792
 
 [node name="Player" type="CharacterBody3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.000947386, 0.000944994, -0.00029844)
+collision_layer = 2
 script = ExtResource("1_awoml")
 
 [node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="."]
