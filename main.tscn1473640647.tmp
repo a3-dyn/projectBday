@@ -5,11 +5,12 @@
 [ext_resource type="Script" uid="uid://54c2aln2qhud" path="res://kill_zone.gd" id="3_h2yge"]
 [ext_resource type="PackedScene" uid="uid://t23f5xtab23l" path="res://flame.tscn" id="4_1bvp3"]
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_1bvp3"]
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_t7khc"]
+sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+ground_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
 
 [sub_resource type="Sky" id="Sky_tvwol"]
-sky_material = SubResource("ShaderMaterial_1bvp3")
-radiance_size = 0
+sky_material = SubResource("ProceduralSkyMaterial_t7khc")
 
 [sub_resource type="Environment" id="Environment_d2rf2"]
 background_mode = 2
@@ -36,15 +37,6 @@ environment = SubResource("Environment_d2rf2")
 
 [node name="Player" parent="." instance=ExtResource("1_cyjr0")]
 transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 0, 1, 0.747471)
-
-[node name="OmniLight3D" type="OmniLight3D" parent="Player"]
-transform = Transform3D(0.200234, 0, 0, 0, 0.200234, 0, 0, 0, 0.200234, 0, -0.121351, -0.149494)
-light_color = Color(0.702286, 0.39394, 0.193175, 1)
-light_energy = 5.116
-light_indirect_energy = 0.51
-light_volumetric_fog_energy = 4.962
-light_size = 1.0
-light_specular = 3.395
 
 [node name="Camera3D" type="Camera3D" parent="Player"]
 transform = Transform3D(0.2, 0, 0, 0, 0.196962, 0.0347296, 0, -0.0347296, 0.196962, 0, 0.1, 1)
@@ -171,30 +163,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.203308, 0.524506, -0.066772
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.198829, 0, 0.0476386)
 shape = SubResource("BoxShape3D_0dk46")
 
-[node name="Block9" type="MeshInstance3D" parent="Environment/Obstacles"]
-transform = Transform3D(2.36175, -0.155973, -1.27525, 0.485904, 0.587561, -0.508461, 1.64462, 0.0503883, 1.98153, 3.89294, 6.00746, 0.672316)
-mesh = SubResource("BoxMesh_umc3s")
-skeleton = NodePath("../../..")
-
-[node name="StaticBody3D" type="StaticBody3D" parent="Environment/Obstacles/Block9"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.203308, 0.524506, -0.0667726)
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Environment/Obstacles/Block9/StaticBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.198829, 0, 0.0476386)
-shape = SubResource("BoxShape3D_0dk46")
-
-[node name="Block10" type="MeshInstance3D" parent="Environment/Obstacles"]
-transform = Transform3D(2.58848, -0.3082, -0.863684, 0.397116, 1.72314, -0.238196, 1.35395, 0.0838157, 1.72105, 11.3768, 4.98332, 0.672316)
-mesh = SubResource("BoxMesh_umc3s")
-skeleton = NodePath("../../..")
-
-[node name="StaticBody3D" type="StaticBody3D" parent="Environment/Obstacles/Block10"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.203308, 0.524506, -0.0667726)
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Environment/Obstacles/Block10/StaticBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.198829, 0, 0.0476386)
-shape = SubResource("BoxShape3D_0dk46")
-
 [node name="Background" type="Node" parent="Environment"]
 
 [node name="Block8" type="MeshInstance3D" parent="Environment/Background"]
@@ -212,14 +180,14 @@ mesh = SubResource("BoxMesh_umc3s")
 transform = Transform3D(1.44353, 0, 0, 0, 1, 0, 0, 0, 1, 0.203308, 0.524506, -0.0667725)
 
 [node name="Block7" type="MeshInstance3D" parent="Environment/Background"]
-transform = Transform3D(-0.328752, 1.53695, 4.29951, 2.44795, 2.57208, -1.21527, -3.99042, 1.8524, -1.2831, -3.86722, 5.90669, -6.17887)
+transform = Transform3D(-0.328752, 1.53695, 4.29951, 2.44795, 2.57208, -1.21527, -3.99042, 1.8524, -1.2831, -3.86722, 5.90669, -7.53223)
 mesh = SubResource("BoxMesh_umc3s")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Environment/Background/Block7"]
 transform = Transform3D(1.44353, 0, 0, 0, 1, 0, 0, 0, 1, 0.203308, 0.524506, -0.0667725)
 
 [node name="Block6" type="MeshInstance3D" parent="Environment/Background"]
-transform = Transform3D(1.80226, -0.283029, 1.17844, 0.731286, 1.67867, -0.540838, -0.999458, 0.717882, 1.72928, 4.94932, 3.58366, -4.59827)
+transform = Transform3D(1.80226, -0.283029, 1.17844, 0.731286, 1.67867, -0.540838, -0.999458, 0.717882, 1.72928, 4.94932, 3.58366, -6.8542)
 mesh = SubResource("BoxMesh_umc3s")
 skeleton = NodePath("../..")
 
