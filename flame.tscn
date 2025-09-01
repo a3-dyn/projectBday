@@ -1,0 +1,155 @@
+[gd_scene load_steps=20 format=3 uid="uid://t23f5xtab23l"]
+
+[ext_resource type="Texture2D" uid="uid://clwujadkrnlbr" path="res://assets/flames.png" id="1_dg5d3"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a44u2"]
+atlas = ExtResource("1_dg5d3")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kddwg"]
+atlas = ExtResource("1_dg5d3")
+region = Rect2(64, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y35ty"]
+atlas = ExtResource("1_dg5d3")
+region = Rect2(128, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bwu8c"]
+atlas = ExtResource("1_dg5d3")
+region = Rect2(192, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dg5d3"]
+atlas = ExtResource("1_dg5d3")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3sicn"]
+atlas = ExtResource("1_dg5d3")
+region = Rect2(80, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ix6le"]
+atlas = ExtResource("1_dg5d3")
+region = Rect2(144, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_20xcu"]
+atlas = ExtResource("1_dg5d3")
+region = Rect2(208, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j8fc7"]
+atlas = ExtResource("1_dg5d3")
+region = Rect2(0, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4js5v"]
+atlas = ExtResource("1_dg5d3")
+region = Rect2(64, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3g2yu"]
+atlas = ExtResource("1_dg5d3")
+region = Rect2(128, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mnpvg"]
+atlas = ExtResource("1_dg5d3")
+region = Rect2(192, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2f0v8"]
+atlas = ExtResource("1_dg5d3")
+region = Rect2(0, 32, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ww58o"]
+atlas = ExtResource("1_dg5d3")
+region = Rect2(64, 32, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gr67k"]
+atlas = ExtResource("1_dg5d3")
+region = Rect2(128, 32, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h7ssv"]
+atlas = ExtResource("1_dg5d3")
+region = Rect2(192, 32, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_3sicn"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a44u2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kddwg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y35ty")
+}, {
+"duration": 1.1,
+"texture": SubResource("AtlasTexture_bwu8c")
+}],
+"loop": true,
+"name": &"1",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dg5d3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3sicn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ix6le")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_20xcu")
+}],
+"loop": true,
+"name": &"2",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j8fc7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4js5v")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3g2yu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mnpvg")
+}],
+"loop": true,
+"name": &"3",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2f0v8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ww58o")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gr67k")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h7ssv")
+}],
+"loop": true,
+"name": &"4",
+"speed": 5.0
+}]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_ix6le"]
+
+[node name="Node3D" type="Node3D"]
+
+[node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="."]
+transform = Transform3D(0.997724, 0, 0, 0, 0.997724, 0, 0, 0, 0.997724, 0, 0, 0)
+texture_filter = 0
+sprite_frames = SubResource("SpriteFrames_3sicn")
+animation = &"4"
+autoplay = "1"
+
+[node name="Area3D" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(0.078619, 0, 0, 0, 0.101831, 0, 0, 0, 0.108771, 0, 0, 0)
+shape = SubResource("SphereShape3D_ix6le")
